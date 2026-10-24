@@ -1,0 +1,25 @@
+﻿
+@model FeedbackManagement.Models.Feedback
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Subject</h5>
+
+        <p><strong>Name:</strong> @Model.Name</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Rating:</strong> @Model.Rating / 5</p>
+        <p><strong>Message:</strong> @Model.Message</p>
+
+        <small>
+            Submitted on: @Model.SubmittedOn.ToString("dd-MM-yyyy HH:mm")
+        </small>
+
+        <div class="mt-2">
+            <a asp-controller="Feedback"
+               asp-action="Details"
+               asp-route-id="@Model.Id">
+                View Details
+            </a>
+        </div>
+    </div>
+</div>

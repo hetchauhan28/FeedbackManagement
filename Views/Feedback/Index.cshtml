@@ -1,0 +1,26 @@
+﻿
+@model IEnumerable<FeedbackManagement.Models.Feedback>
+
+@{
+    ViewData["Title"] = "Feedback List";
+}
+
+<h2>Feedback List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Submit New Feedback
+    </a>
+</p>
+
+@if (!Model.Any())
+{
+    <p>No feedback has been submitted yet.</p>
+}
+else
+{
+    foreach (var feedback in Model)
+    {
+        <partial name="_FeedbackCard" model="feedback" />
+    }
+}

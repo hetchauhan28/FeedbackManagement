@@ -1,0 +1,63 @@
+﻿
+@model FeedbackManagement.Models.Feedback
+
+@{
+    ViewData["Title"] = "Submit Feedback";
+}
+
+<h2>Submit Feedback</h2>
+<p>We value your opinion. Please share your feedback below.</p>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Subject"></label>
+        <input asp-for="Subject" class="form-control" />
+        <span asp-validation-for="Subject"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Rating">Rating (1 to 5)</label>
+        <select asp-for="Rating" class="form-control">
+            <option value="">Select rating</option>
+            <option value="1">1 - Poor</option>
+            <option value="2">2 - Fair</option>
+            <option value="3">3 - Good</option>
+            <option value="4">4 - Very Good</option>
+            <option value="5">5 - Excellent</option>
+        </select>
+        <span asp-validation-for="Rating"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Message"></label>
+        <textarea asp-for="Message" class="form-control"
+                  rows="5"></textarea>
+        <span asp-validation-for="Message"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Submit Feedback
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        View Feedback
+    </a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
